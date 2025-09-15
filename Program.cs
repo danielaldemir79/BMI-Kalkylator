@@ -7,19 +7,19 @@
 
             int val = 0;
 
-            while (val != 3)
+            while (val != 4)
             {
                 VisaMeny();
                 val = GetInt();
 
-                if (val == 3)
+                if (val == 4)
                 {
                     return;
                 }
-                else if (val != 1 && val != 2)
+                else if (val != 1 && val != 2 && val != 3)
                 {
-                    Console.WriteLine("Du har angett felaktigt värde. Programmet avslutas.");
-                    return;
+                    Console.WriteLine("Du har angett felaktigt värde. Försök igen.");
+                    continue;
                 }
 
                 switch (val)
@@ -56,9 +56,24 @@
                         Console.WriteLine($"Ditt BMI (imperiska) är: {Math.Round(bmiImperial, 2)}");
                         break;
                         
-                    default:
-                        Console.WriteLine("Du har angett felaktigt värde. Programmet avslutas.");
+                    case 3:
+                        Console.WriteLine();
+                        Console.WriteLine("Du har valt att testa att skicka namngivna argument + explicit enhet.");
+                        Console.WriteLine();
+
+                        Console.WriteLine("Hur lång är du? Svara i cm");
+                        double längd = GetDouble() / 100;
+
+                        Console.WriteLine("Hur mycket väger du? Svara i kg");
+                        double vikt = GetDouble();
+
+
+                        double bmiTest = CalculateBMI(weight: vikt , height: längd, unit: "metric");
+                        Console.WriteLine();
+                        Console.WriteLine($"Ditt BMI (imperiska) är: {Math.Round(bmiTest, 2)}");
                         break;
+                        
+                   
                 }
                 Console.WriteLine();
 
@@ -77,7 +92,8 @@
             Console.WriteLine("Välj enhetssystem:");
             Console.WriteLine("1. Metriska enheter (kg, m)");
             Console.WriteLine("2. Imperiska enheter (pounds, inches)");
-            Console.WriteLine("3. Avsluta");
+            Console.WriteLine("3. Test av namngivna argument och explicit enhet");
+            Console.WriteLine("4. Avsluta");
         }
         
         static double CalculateBMI(double weight, double height, string unit = "metric")

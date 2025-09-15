@@ -32,6 +32,12 @@
                         Console.WriteLine("Hur lång är du? Svara i cm");
                         double heightMeter = GetDouble() / 100;
 
+                        if (heightMeter <= 0)
+                        {
+                            Console.WriteLine("Längden måste vara större än 0. Avslutar programmet.");
+                            return;
+                        }
+
                         Console.WriteLine("Hur mycket väger du? Svara i kg");
                         double weightKg = GetDouble();
 
@@ -47,7 +53,13 @@
                         
                         Console.WriteLine("Hur lång är du? Svara i inches");
                         double heightInches = GetDouble();
-                        
+
+                        if (heightInches <= 0)
+                        {
+                            Console.WriteLine("Längden måste vara större än 0. Avslutar programmet.");
+                            return;
+                        }
+
                         Console.WriteLine("Hur mycket väger du? Svara i pounds");
                         double weightPounds = GetDouble();
 
@@ -63,6 +75,12 @@
 
                         Console.WriteLine("Hur lång är du? Svara i cm");
                         double längd = GetDouble() / 100;
+
+                        if(längd <= 0)
+                        {
+                            Console.WriteLine("Längden måste vara större än 0. Avslutar programmet.");
+                            return;
+                        }
 
                         Console.WriteLine("Hur mycket väger du? Svara i kg");
                         double vikt = GetDouble();
